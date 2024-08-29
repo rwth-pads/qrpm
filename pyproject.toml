@@ -1,0 +1,15 @@
+[tool.poetry]
+name = "qrpm"
+version = "0.1.0"
+description = ""
+authors = ["Nina Graves <graves@pads.rwth-aachen.de>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.12"
+qel-simulation = {git = "git@github.com:ninagraves/qel_simulation.git"}
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
