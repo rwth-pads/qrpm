@@ -8,6 +8,11 @@ readme = "README.md"
 [tool.poetry.dependencies]
 python = "^3.12"
 qel-simulation = {git = "git@github.com:ninagraves/qel_simulation.git"}
+graphviz = "^0.20.3"
+plotly = "^5.24.0"
+dash-interactive-graphviz = "^0.3.0"
+dash = "^2.17.1"
+pm4py = "^2.7.5.2"
 
 
 [build-system]
