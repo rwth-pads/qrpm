@@ -1,14 +1,8 @@
-import json
-
-from dash import dcc
-import plotly.graph_objects as go
-
 from qrpm.analysis.counterOperations import cp_projection, item_type_projection
 from qrpm.analysis.ocelOperations import event_selection, activity_selection
 from qrpm.GLOBAL import PRE_EVENT_ILVL, TERM_QUANTITY_OPERATIONS, TERM_ITEM_LEVELS, TERM_ALL, ILVL_AVAILABLE, TERM_EVENT
 import qrpm.analysis.quantityState as ilvvl
 import qrpm.app.dataStructure as ds
-import qrpm.analysis.dataVisualisation as viz
 
 def process_ilvl_data_according_to_selection(ilvl, overview_json, ilvl_type, ilvl_perspective, ilvl_property,
                                              cp_aggregation, it_aggregation, item_types_projection, cps_projection):

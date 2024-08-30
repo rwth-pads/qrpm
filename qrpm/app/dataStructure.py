@@ -196,7 +196,7 @@ def store_single_dataframe(df: pd.DataFrame):
 def parse_demo_data() -> (QuantityEventLog, dict):
     """Parse demo data and return a QuantityEventLog object."""
 
-    with open('App/files/overview_data.json') as f:
+    with open('files/overview_data.json') as f:
         overview_data = json.load(f)
 
     qty_state = True
@@ -212,7 +212,7 @@ def parse_upload(contents, **kwargs) -> QuantityEventLog:
     content_type, content_string = contents.split(',')
     decoded = base64.b64decode(content_string)
 
-    file_path = f"App/files/passed_file.sqlite"
+    file_path = f"files/passed_file.sqlite"
 
     # write temporary file
     with open(file_path, 'wb') as tmp:
@@ -260,7 +260,7 @@ def create_initial_stores(qel: QuantityEventLog):
 
     state_store = create_initial_state_store(qty_state=qty_state, demo_state=False)
 
-    with open("App/files/overview_data.json", 'w') as file:
+    with open("files/overview_data.json", 'w') as file:
         json.dump(overview, file)
 
     return transform_dict_to_json(overview), transform_dict_to_json(state_store)

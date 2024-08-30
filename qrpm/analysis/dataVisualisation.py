@@ -8,7 +8,6 @@ import plotly.express as px
 import plotly.graph_objects as go
 import plotly.subplots as sp
 
-import qrpm.analysis.ocelOperations
 import qrpm.analysis.quantityState as ilvvl
 from qrpm.analysis.ocelOperations import get_total_count_of_objects, event_object_type_count, \
     get_execution_number, filter_events_for_time, add_time_since_last_instance
@@ -644,7 +643,7 @@ def show_active_events(qop: pd.DataFrame):
 
     qop_data.loc[qop_data[TERM_EVENT].isin(active_events), TERM_ACTIVE] = TERM_ACTIVE
 
-    qop_data[TERM_ACTIVE] = qop_data[TERM_ACTIVE].replace("nan", TERM_INACTIVE)
+    qop_data[TERM_ACTIVE] = qop_data[TERM_ACTIVE].replace(np.nan, TERM_INACTIVE)
 
     fig = px.sunburst(qop_data, path=[TERM_ACTIVE, TERM_ACTIVITY], color_discrete_sequence=CHART_COLOURS)
 

@@ -1,10 +1,9 @@
 import pandas as pd
 import pm4py
 
-from Components.Log_Elements.Object import create_object_type
-from Components.QuantityEventLog import QuantityEventLog
-from Components.QuantityNet import QuantityNet
-from GLOBAL import TERM_EVENT, TERM_ACTIVITY, TERM_TIME, TERM_OBJECT, TERM_OBJECT_TYPE
+from qel_simulation.simulation import create_object_type
+from qel_simulation import QuantityEventLog, QuantityNet
+from qrpm.GLOBAL import TERM_EVENT, TERM_ACTIVITY, TERM_TIME, TERM_OBJECT, TERM_OBJECT_TYPE
 
 
 def load_ocpn_from_file(file_path: str) -> QuantityNet:

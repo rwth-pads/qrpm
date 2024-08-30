@@ -1,5 +1,5 @@
 from typing import Iterable
-
+import numpy as np
 import pandas as pd
 
 from qrpm.analysis.counterOperations import get_active_instances, item_type_projection, cp_active_instances_any_cp, \
@@ -143,6 +143,6 @@ def get_direction_quantity_instances(qop: pd.DataFrame) -> pd.DataFrame:
     active_enhanced.loc[active_enhanced[TERM_REMOVING] == True, TERM_DIRECTION] = TERM_REMOVING
     active_enhanced.loc[
         (active_enhanced[TERM_ADDING] & active_enhanced[TERM_REMOVING]), TERM_DIRECTION] = TERM_ADDING_REMOVING
-    active_enhanced[TERM_DIRECTION] = active_enhanced[TERM_DIRECTION].replace("nan", TERM_INACTIVE)
+    active_enhanced[TERM_DIRECTION] = active_enhanced[TERM_DIRECTION].replace(np.nan, TERM_INACTIVE)
 
     return active_enhanced

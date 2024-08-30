@@ -11,8 +11,9 @@ qel-simulation = {git = "git@github.com:ninagraves/qel_simulation.git"}
 graphviz = "^0.20.3"
 plotly = "^5.24.0"
 dash-interactive-graphviz = "^0.3.0"
-dash = "^2.17.1"
+dash = "2.17.0"
 pm4py = "^2.7.5.2"
+dash-svg = "^0.0.12"
 
 
 [build-system]
