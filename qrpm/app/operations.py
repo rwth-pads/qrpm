@@ -241,14 +241,9 @@ def quantity_state_development_graph(processed_qstate_json, qty_json, ilvl_type,
     else:
         post_ilvl = True
 
-    fig = viz.item_level_development_activity_executions(ilvl=ilvl,
+    return viz.item_level_development_activity_executions(ilvl=ilvl,
                                                           events=events,
                                                           post_ilvl=post_ilvl, joint_display=display_type)
-
-    return dcc.Loading(id="loading_qstate_development", style={"display": "block"}, type="circle", color='#0098A1',
-                target_components={"qstate-development-graph": "figure"}, children=[
-            dcc.Graph(id="qstate-development-graph", figure=fig, style={'height': '700px', 'width': '100%'})
-        ]),
 
 
 

@@ -1078,7 +1078,10 @@ QStateDevelopment = html.Div(id="qstate-overview", style={"margin": "5px"}, chil
                                                                {"label": "Jointly", "value": True}],
                         value=False, inline=True, style={"margin": "5px", "display": "inline", "fontSize": 14}),
     ]),
-    html.Div(id="qstate-dev-component"),
+    dcc.Loading(id="loading_qstate_development", style={"display": "block"}, type="circle", color='#0098A1',
+                target_components={"qstate-development-graph": "figure"}, children=[
+            dcc.Graph(id="qstate-development-graph", style={'height': '700px', 'width': '100%'})
+        ]),
     create_simple_data_table("cp-stats")
 ])
 

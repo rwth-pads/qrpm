@@ -835,7 +835,7 @@ def get_relevant_ilvl_data(qty_json, overview_json,
                                                                cps_projection=cp_projection
                                                                )
 
-@callback(Output("qstate-dev-component", "children"),
+@callback(Output("qstate-development-graph", "figure"),
           Input("qstate-processed", "data"),
           Input("quantity-data", "data"),
           Input("ilvl-type", "value"),
@@ -846,7 +846,7 @@ def update_quantity_state_development(processed_qstate_json, qty_json, ilvl_type
     if processed_qstate_json and qty_json:
         pass
     else:
-        return None
+        return plotly.graph_objs.Figure()
 
     return operations.quantity_state_development_graph(processed_qstate_json=processed_qstate_json,
                                                               qty_json=qty_json,
@@ -1258,5 +1258,5 @@ def distribution_single_qups_item_type_figure(qty_relation_json, item_type, qup_
 
 
 if __name__ == '__main__':
-    app.run_server() #debug=True
+    app.run_server(debug=True)
     # dev_tools_hot_reload=False
