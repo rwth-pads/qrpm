@@ -13,7 +13,9 @@ idea of the expected input format and the functionalities of the tool.
 
 The following screencast shows the basic functionalities of QRPM:
 
- ---- coming soon ----
+<iframe width="560" height="315" src="https://youtu.be/1ipKGYq3LeE" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+
+[//]: # (![QRPM Demo]&#40;demo/QRPM_Demo.gif&#41;)
 
 QRPM © 2024 by Nina Graves is licensed under CC BY 4.0. To view a copy of this license, visit http://creativecommons.org/licenses/by/4.0/
 
@@ -76,6 +78,8 @@ Objects can be filtered based on the following criteria:
 - objects of a specific object type executing a specific activity
 - objects of a specific object type executing a specific activity a specific number of times.
 
+By applying multiple filters, the user can create a sublog that only contains the events and objects that meet all the specified criteria.
+By clicking "Reset QEL" all filters are reset and the original QEL is restored.
 Only quantity operations connected to the selected events, collection points and item types are considered in the quantity operations tab.
 
 ### Quantity Data Processing (*qr*)
