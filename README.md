@@ -83,16 +83,45 @@ By clicking "Reset QEL" all filters are reset and the original QEL is restored.
 Only quantity operations connected to the selected events, collection points and item types are considered in the quantity operations tab.
 
 ### Quantity Data Processing (*qr*)
-
- ---- coming soon ----
+The included quantity data is can be analysed by two perspectives: the quantity state during before and after event 
+executions and the quantity operations changing the item levels in events.
 
 #### Quantity State
+The first tab deals with the quantity state at event executions.
+The main element of this tab is the chart showing the quantity state development and the table below, giving information on the item levels of the different collection points.
+The quantity state is determined using the full log and the exclusion of events with active quantity operations does not affect determination of the quantity state.
+However, when the user filters the log, the quantity state development chart will highlight the events included in the sublog in an additional subfigure added to the top.
+The user can also choose to display the quantity state development of the full log or the sublog by selecting the corresponding option in the "Quantity State Development Display" button.
+When selecting the sublog, the quantity state of events included in the log are connected without showing the impact of events that occurred inbetween.
+While the top chart and the table work with the full log, everything beneath the table only includes the quantity states of the sublog.
+The user has the following options of processing the quantity state:
+- Perspective: Switching between "Item Levels" (can be positive or negative) and Item Associations (no distinction between positive and negative, just absolute values).
+- Pre/Post Item Level: Item levels associated with every event either before or after the event execution.
+- Property: Only consider positive/negative item levels.
+- Item Type Aggregation: Aggregating the values of all included item types (selected below) to one value per event and collection point, e.g., for capacity analyses.
+- Collection Point Aggregation: Aggregating the values of all included collection points (selected below) to one value per event and item type, e.g., for consideration of an overall quantity state.
+- Item Types: Selecting the item types to be considered in the analysis.
+- Collection Points: Selecting the collection points to be considered in the analysis.
 
- ---- coming soon ----
+The processed data used for the charts based on the processed data of the sublog can be seen and exported by clicking "View Data" beneath the configuration options.
+
+##### Quantity State at Execution
+Based on the processed quantity state data, the user can consider the quantity state at the execution of events of a selected activity.
+This analysis can refer to all collection points (default) or a selected collection point -- the same applies for the item types.
+By merely limiting to an activity, the user gets information on the quantity state at the execution of the selected activity independently whether the selected item type is involved in the event or not.
+By selecting "Only active item types", the tables and charts only include data for a specific item type, if the event is quantity active for this item type.
+The following tables and charts are available for the analysis using the selected data:
+- Descriptive Statistics (Table + Boxplot) of the distribution of the quantity state. Distributions refer to all entries of the same activity, collection point or item type (max 20 item types).
+Other charts only displayed when the user narrows down data ("Frequency of Item Level at Execution of Collection Point" requires a selected collection point):
+- Item Level at Event Execution: A bar chart showing the item levels of all of the selected collection points and item types at the execution of every event of the selected activity.
+- Frequency of Item Level at Execution of Collection Point: Histogram of the item levels of the selected collection point at the execution of the selected activity.
+- Item Levels before and after Event Execution per Item Type (only displayed if pre-event item levels are selected): Boxplots showing the item levels of the selected item types before and after the execution of the selected activity.
+
+The options of display and processing are derived from the typology of inventory management processes; the focus lies on the patterns in the execution of item type-active executions based on quantity levels (small stock s) and the quantity-dependent execution of quantity operations (Large stock S).  
 
 #### Quantity Operations
 
- ---- coming soon ----
+ ---- description coming soon ----
 
 ## References
 [1] in review
