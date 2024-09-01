@@ -146,13 +146,20 @@ def events_at_qstate(ilvl: pd.DataFrame, collection_point: str, item_types: Iter
     """return all event ids where the item level is in the specified area."""
 
     relevant_item_levels = ilvl.loc[ilvl[TERM_COLLECTION] == collection_point, :]
+
     if min is not None:
-        relevant_item_levels = relevant_item_levels.loc[(relevant_item_levels[item_types] >= min).any(axis=1), :]
+        if len(item_types) > 1:
+            relevant_item_levels = relevant_item_levels.loc[(relevant_item_levels[item_types] >= min), :]
+        else:
+            relevant_item_levels = relevant_item_levels.loc[(relevant_item_levels[item_types] >= min).any(axis=1), :]
     else:
         pass
 
     if max is not None:
-        relevant_item_levels = relevant_item_levels.loc[(relevant_item_levels[item_types] <= max).any(axis=1), :]
+        if len(item_types) > 1:
+            relevant_item_levels = relevant_item_levels.loc[(relevant_item_levels[item_types] <= max), :]
+        else:
+            relevant_item_levels = relevant_item_levels.loc[(relevant_item_levels[item_types] <= max).any(axis=1), :]
     else:
         pass
 
