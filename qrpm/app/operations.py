@@ -329,11 +329,11 @@ def quantity_update_distribution(qty_relation, qop_active, qop_view, display_poi
 def plot_qup_distribution(qty_relation, item_type, view):
 
     # filter data for passed item type
-    if TERM_VALUE in qop.columns:
-        qop = qop.loc[qop[TERM_ITEM_TYPES] == item_type, :]
+    if TERM_VALUE in qty_relation.columns:
+        qop = qty_relation.loc[qty_relation[TERM_ITEM_TYPES] == item_type, :]
     else:
-        non_item_types, it = split_instance_and_variable_entries(qop.columns)
-        qop = qop.loc[:, non_item_types + [item_type]]
+        non_item_types, it = split_instance_and_variable_entries(qty_relation.columns)
+        qop = qty_relation.loc[:, non_item_types + [item_type]]
 
     fig = viz.boxplots_of_distribution(data=qop, view=view)
 

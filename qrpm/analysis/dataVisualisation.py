@@ -1002,6 +1002,7 @@ def show_active_item_type_distribution_per_event(qop: pd.DataFrame):
     return fig
 
 def show_active_qops(qop: pd.DataFrame):
+    qop = qop.fillna(0)
     qop_enhanced = get_enhanced_quantity_instances(qop)
 
     fig = px.sunburst(qop_enhanced, path=[TERM_ACTIVITY, TERM_ACTIVE, TERM_COLLECTION], color_discrete_sequence=CHART_COLOURS)
@@ -1597,6 +1598,7 @@ def average_adding_removing_quantity_updates_per_time_unit(qop, time_unit):
         qop = create_quantity_updates(qop)
 
     qop.loc[:, TERM_TIME] = pd.to_datetime(qop[TERM_TIME])
+    qop[TERM_VALUE] = qop[TERM_VALUE].fillna(0)
 
     # Separate adding and removing quantity updates
     qop.loc[:, TERM_ADDING] = qop[TERM_VALUE].apply(lambda x: x if x >= 0 else np.nan)

@@ -137,6 +137,7 @@ def get_direction_quantity_instances(qop: pd.DataFrame) -> pd.DataFrame:
     non_item_types, item_types = split_instance_and_variable_entries(set(qop.columns))
 
     active_enhanced = qop.copy()
+    active_enhanced[item_types] = active_enhanced[item_types].fillna(0)
     active_enhanced[TERM_ADDING] = active_enhanced[item_types].apply(lambda row: any(val > 0 for val in row), axis=1)
     active_enhanced[TERM_REMOVING] = active_enhanced[item_types].apply(lambda row: any(val < 0 for val in row), axis=1)
     active_enhanced.loc[active_enhanced[TERM_ADDING] == True, TERM_DIRECTION] = TERM_ADDING

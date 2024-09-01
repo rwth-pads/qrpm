@@ -3,6 +3,7 @@ from qrpm.GLOBAL import (TERM_EVENT, TERM_QTY_EVENTS, TERM_ACTIVITY, TERM_QTY_AC
     TERM_OBJECT_TYPE, TERM_QTY_OBJECT_TYPES, TERM_COLLECTION, TERM_ITEM_TYPES, TERM_ACTIVE_QOP, TERM_QUANTITY_RELATIONS,
                     TERM_INITIAL_ILVL)
 from qel_simulation import QuantityEventLog
+import qrpm.analysis.quantityOperations as qopp
 
 def get_log_overview(qel: QuantityEventLog):
     """Get an overview of the quantity event log."""
@@ -13,11 +14,13 @@ def get_log_overview(qel: QuantityEventLog):
     log_overview[TERM_QTY_EVENTS] = len(qel.get_quantity_events())
     log_overview[TERM_ACTIVITY] = list(qel.activities)
     log_overview[TERM_QTY_ACTIVITIES] = list(qel.quantity_activities)
-    log_overview[TERM_OBJECT] = len(qel.objects)
+    objs = qel.get_objects()
+    log_overview[TERM_OBJECT] = len(objs[TERM_OBJECT].unique())
     log_overview[TERM_QTY_OBJECTS] = len(qel.get_qty_objects())
     log_overview[TERM_OBJECT_TYPE] = list(qel.object_types)
     log_overview[TERM_QTY_OBJECT_TYPES] = list(qel.get_qty_object_types())
-    log_overview[TERM_ACTIVE_QOP] = len(qel.active_quantity_operations)
+    qop = qel.get_quantity_operations()
+    log_overview[TERM_ACTIVE_QOP] = len(qopp.get_active_instances(qop))
     log_overview[TERM_COLLECTION] = list(qel.collection_points)
     log_overview[TERM_ITEM_TYPES] = list(qel.item_types)
     log_overview[TERM_QUANTITY_RELATIONS] = list(qel.get_quantity_relations())

@@ -9,26 +9,6 @@ from qrpm.GLOBAL import (TERM_EVENT, TERM_ITEM_TYPES, TERM_QTY_EVENTS, TERM_QTY_
                     TERM_OBJECT_TYPE, TERM_COLLECTION, TERM_QUANTITY_OPERATIONS)
 
 
-def get_log_overview(qel: QuantityEventLog):
-    """Get an overview of the quantity event log."""
-
-    log_overview = dict()
-
-    log_overview[TERM_EVENT] = len(qel.events)
-    log_overview[TERM_QTY_EVENTS] = len(qel.get_quantity_events())
-    log_overview[TERM_ACTIVITY] = list(qel.activities)
-    log_overview[TERM_QTY_ACTIVITIES] = list(qel.quantity_activities)
-    log_overview[TERM_OBJECT] = len(qel.objects)
-    log_overview[TERM_QTY_OBJECTS] = len(qel.get_qty_objects())
-    log_overview[TERM_OBJECT_TYPE] = list(qel.object_types)
-    log_overview[TERM_QTY_OBJECT_TYPES] = list(qel.get_qty_object_types())
-    log_overview[TERM_ACTIVE_QOP] = len(qel.active_quantity_operations)
-    log_overview[TERM_COLLECTION] = list(qel.collection_points)
-    log_overview[TERM_ITEM_TYPES] = list(qel.item_types)
-    log_overview[TERM_QUANTITY_RELATIONS] = list(qel.get_quantity_relations())
-
-    return log_overview
-
 def get_element_overview(qop: pd.DataFrame, e2o: pd.DataFrame):
     """Get information about the events, objects, activities, object types, item types and collections involved in the
     passed (filtered?!) data."""

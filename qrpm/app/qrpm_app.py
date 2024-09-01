@@ -1258,5 +1258,5 @@ def distribution_single_qups_item_type_figure(qty_relation_json, item_type, qup_
 
 
 if __name__ == '__main__':
-    app.run_server(debug=True) #debug=True
+    app.run_server() #debug=True
     # dev_tools_hot_reload=False
