@@ -13,7 +13,7 @@ idea of the expected input format and the functionalities of the tool.
 
 The following screencast shows the basic functionalities of QRPM:
 
-<iframe width="560" height="315" src="https://youtu.be/1ipKGYq3LeE" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+[Screencast](https://youtu.be/1ipKGYq3LeE)
 
 [//]: # (![QRPM Demo]&#40;demo/QRPM_Demo.gif&#41;)
 
