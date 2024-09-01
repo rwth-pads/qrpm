@@ -783,7 +783,7 @@ def create_selected_sublog(overview_json, ocel_json, qty_json,
 ##############################################################################
 
 @callback(Output("qstate-processed", "data"),
-          State("quantity-data", "data"),
+          Input("quantity-data", "data"),
           Input("raw-store", "data"),
 
           Input("ilvl-type", "value"),
@@ -838,7 +838,7 @@ def get_relevant_ilvl_data(qty_json, overview_json,
 @callback(Output("qstate-dev-component", "children"),
           Input("qstate-processed", "data"),
           Input("quantity-data", "data"),
-          State("ilvl-type", "value"),
+          Input("ilvl-type", "value"),
           Input("ilvl-graph-display", "value"),
           Input("qstate-development-radio", "value")
           )
@@ -947,9 +947,9 @@ def update_item_level_distribution(execution_ilvl_json, ilvl_view):
 
 @callback(Output("ilvl-pre-post-component", "style"),
             Input("qstate-execution", "data"),
-            Input("qstate-pre-post", "value"))
-def show_pre_post_item_level_distribution(execution_ilvl_json, pre_post_selection):
-    if execution_ilvl_json and pre_post_selection==PRE_EVENT_ILVL:
+            Input("ilvl-type", "value"))
+def show_pre_post_item_level_distribution(execution_ilvl_json, ilvl_type):
+    if execution_ilvl_json and ilvl_type==PRE_EVENT_ILVL:
         return {"display": "block"}
     else:
         return {"display": "none"}
@@ -960,8 +960,8 @@ def show_pre_post_item_level_distribution(execution_ilvl_json, pre_post_selectio
           Input("quantity-data", "data"),
           Input("ilvl-type", "value"),
           Input("qstate-pre-post", "value"),)
-def pre_post_event_quantity_state(execution_ilvl_json, qty_json, pre_post_selection, barchart):
-    if execution_ilvl_json and qty_json and pre_post_selection==PRE_EVENT_ILVL:
+def pre_post_event_quantity_state(execution_ilvl_json, qty_json, ilvl_type, barchart):
+    if execution_ilvl_json and qty_json and ilvl_type==PRE_EVENT_ILVL:
         pass
     else:
         return plotly.graph_objs.Figure()
