@@ -13,9 +13,9 @@ idea of the expected input format and the functionalities of the tool.
 
 The following screencast shows the basic functionalities of QRPM:
 
-[Screencast](https://youtu.be/1ipKGYq3LeE)
+![](demo/qrpm_demo_clip.gif)
 
-[//]: # (![QRPM Demo]&#40;demo/QRPM_Demo.gif&#41;)
+[Full Screencast Video](https://youtu.be/1ipKGYq3LeE)
 
 QRPM © 2024 by Nina Graves is licensed under CC BY 4.0. To view a copy of this license, visit http://creativecommons.org/licenses/by/4.0/
 
