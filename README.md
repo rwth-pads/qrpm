@@ -19,7 +19,9 @@ The following screencast shows the basic functionalities of QRPM:
 
 QRPM © 2024 by Nina Graves is licensed under CC BY 4.0. To view a copy of this license, visit http://creativecommons.org/licenses/by/4.0/
 
-## Installation
+## Getting Started
+
+### Installation
 The repository uses poetry for dependency management. If you do not have poetry installed, you can install it by running:
 ```pip install poetry```
 Installation of the full tool has to occur in four steps:
@@ -30,7 +32,10 @@ For Windows this means you must run:
               --config-settings="--global-option=-IC:\Program Files\Graphviz\include" `
               --config-settings="--global-option=-LC:\Program Files\Graphviz\lib" `
               pygraphviz```
-3. Run ```poetry install``` again to synchronise the dependencies
+3. Run ```poetry install``` again to synchronise the dependencies.
+
+### Running the Tool
+After ensuring all dependencies are installed, you can run the tool by executing the ```qrpm_app.py``` file in qrpm/app.
 
 ## Functionality
 QRPM is a tool for the analysis of quantity event logs (QELs) which extend the OCEL 2.0 standard [2]. 
@@ -120,13 +125,42 @@ Other charts only displayed when the user narrows down data ("Frequency of Item 
 The options of display and processing are derived from the typology of inventory management processes; the focus lies on the patterns in the execution of item type-active executions based on quantity levels (small stock s) and the quantity-dependent execution of quantity operations (Large stock S).  
 
 #### Quantity Operations
+The second tab should support the processing and analysis of the quantity operations executed by events in the log for 
+the identification of patterns.
+Without processing the data, all visualisations and tables in this section refer to all quantity operations of the events selected in the filtered log.
+The user can perform some basic processing of the quantity operations of the sublog:
+- Perspective: Switching between "Quantity Changes" (distinction between additions and removals) and Item Movements (the total number of items moved (absolute value)).
+- Adding/Removing: The data can be projected to only the adding/removing quantity operations.
+- Included Instances: Consider all quantity operations, only the active ones (the full quantity operations of all quantity operations with at least one non-zero value), or only active quantity updates (replaces zeros with NANs).
+- Item Type Aggregation: Aggregating the values of all included item types (selected below) to one value per event and collection point.
+- Collection Point Aggregation: Aggregating the values of all included collection points (selected below) to one value per event and item type.
+- Item Types: Selecting the item types to be considered in the analysis.
+- Collection Points: Selecting the collection points to be considered in the analysis.
 
- ---- description coming soon ----
+As for the quantity state, the data can be viewed and exported by clicking "View Data" beneath the configuration options.
+The first three charts give a general overview of the selected quantity operations without focussing on specific events/collection points/item types:
+- Activity Impact on Collection Point's Item Levels: A scatter plot showing the number of quantity operations / number of items moved by the different activities for each of the two directions (adding/removing). The axes show the collection points and the item types (max 20 item types). To increase readability, random jitter was added to every point (i.e., the distance from the center point has no meaning).
+- Active Quantity Operations: Depicts the number of active quantity operations for the different activities and collection points.
+- Direction of Quantity Changes: Shows the number of quantity operations adding items, removing items or both per activity and collection point.
+
+At the bottom of the page, the user can go into more detail for a specific quantity relation (activity & collection point) using the following visualisations:
+- Depicting the quantity operations of the selected activity and collection point over time (takes long to render if the considered period is long).
+- Distribution of active item types and item type combinations.
+- Descriptive Statistics (Table + Boxplot) of the distribution of the quantity updates.
+- Time between quantity operations (if you only want to consider non-zero quantity updates, select "Active Qty Updates" in the processing options).
+- Mean Quantity Changes: Shows the mean quantity changes (per month, per day, per event, per addition/removal) for every item type (especially interesting for collection points for considering turnovers).
+- Mean time between additions and removals: Shows the mean time between additions and removals for every item type. 
+
+There are some visualisations to consider the quantity updates of a selected item type:
+- Quantity Updates per event
+- Distribution of the quantity updates of the selected item type (boxplot)
+- Time between active quantity updates of the selected item type
+- Distribution of the time between active quantity updates of the selected item type (boxplot)
 
 ## References
-[1] in review
-[2] https://www.ocel-standard.org/
-[3] in progress 
+[1] in review //
+[2] https://www.ocel-standard.org/ //
+[3] publication in progress //
 
 
 
