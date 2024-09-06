@@ -1,5 +1,3 @@
-## Readme Still in Progress
-
 # QRPM
 This interactive Quantitative Process Mining-Tool (QRPM) allows for the basic analysis of quantity event logs (QELs) which extend the OCEL 2.0 standard.
 Its functionalities encompass:
